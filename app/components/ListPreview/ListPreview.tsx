@@ -4,51 +4,9 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
-export const ListPreview = () => {
-	const columns = [
-		{
-			key: "product",
-			label: "Producto",
-		},
-		{
-			key: "quantity",
-			label: "Cantidad",
-		},
-		{
-			key: "status",
-			label: "Estado",
-		},
-		{
-			key: "action",
-			label: "Acciones",
-		},
-	];
-	const rows = [
-		{
-			key: "1",
-			product: "Mayonesa",
-			quantity: 1,
-			status: "No hay", // En el carrito | No hay | Comprado
-		},
-		{
-			key: "2",
-			product: "Mostaza",
-			quantity: 1,
-			status: "En el carrito", // En el carrito | No hay | Comprado
-		},
-		{
-			key: "3",
-			product: "Medallones de verdura",
-			quantity: 2,
-			status: "No hay", // En el carrito | No hay | Comprado
-		},
-		{
-			key: "4",
-			product: "Arroz",
-			quantity: 1,
-			status: "Comprado", // En el carrito | No hay | Comprado
-		},
-	];
+import { type NewListContextType } from "../interfaces";
+
+export const ListPreview = ({ columns, rows }: Partial<NewListContextType>) => {
 	return (
 		<Table
 			aria-label="Shopping List Preview"
