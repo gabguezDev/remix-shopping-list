@@ -11,6 +11,7 @@ import {
 
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { Link } from "@remix-run/react";
 
 type Props = {
 	darkMode: boolean;
@@ -21,13 +22,17 @@ type Props = {
 export const Layout = ({ darkMode, children, toggleDarkMode }: Props) => {
 	return (
 		<>
-			<Navbar className="w-full items-center">
-				<Navbar.Brand>
+			<Navbar className="w-full items-center" variant={"floating"}>
+				<Navbar.Brand as={Link} to={"/"}>
 					<Text h1>Remix Shopping List</Text>
 				</Navbar.Brand>
 				<Navbar.Content>
-					<Navbar.Link>Nueva Lista</Navbar.Link>
-					<Navbar.Link>Historial</Navbar.Link>
+					<Navbar.Link as={Link} to={"/new"}>
+						Nueva Lista
+					</Navbar.Link>
+					<Navbar.Link as={Link} to={"/my-lists"}>
+						Mis Listas
+					</Navbar.Link>
 					<Navbar.Item>
 						<Dropdown>
 							<Dropdown.Button>Ingresa</Dropdown.Button>
@@ -48,7 +53,9 @@ export const Layout = ({ darkMode, children, toggleDarkMode }: Props) => {
 					</Navbar.Item>
 				</Navbar.Content>
 			</Navbar>
-			<Container>{children}</Container>
+			<Container className="flex w-full justify-center p-5">
+				{children}
+			</Container>
 		</>
 	);
 };
